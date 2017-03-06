@@ -68,6 +68,10 @@
 			<artifactId>animate.css</artifactId>
 			<version>3.5.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
