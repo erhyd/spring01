@@ -18,8 +18,8 @@ public interface CityMapper {
 	@Select("select count(*) from city")
 	int selectTotalCount();
 	
-	@Select("select * from city where country_code=#{code}")
-	List<City> selectAll(String code);
+	@Select("select * from city")
+	List<City> selectAll();
 	List<City> selectAllWithCountry();
 	
 	
@@ -30,7 +30,7 @@ public interface CityMapper {
 			"fetch next #{itemsPerPage} rows only"})
 	
 	List<City> selectPage(Pagination paging);
-	List<City> selectPageWithCity(Pagination paging);
+	List<City> selectPageWithCountry(Pagination paging);
 	
 	@Select("select * from city where id=#{id}")
 	City selectById(int id);

@@ -9,7 +9,7 @@ public class City {
 
 	private int id;
 	private String name;
-	private String country_code;
+	private String countryCode;
 	private String district;
 	private BigDecimal population;
 	
@@ -102,11 +102,11 @@ public class City {
 	}
 
 	public String getCountry_code() {
-		return country_code;
+		return countryCode;
 	}
 
 	public void setCountry_code(String country_code) {
-		this.country_code = country_code;
+		this.countryCode = country_code;
 	}
 
 }

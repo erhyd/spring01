@@ -4,7 +4,7 @@
 <resultMap type="com.example.domain.City" id="cityWithCountry">
 	<id 	property="id" 				column="city_id"/>
 	<result property="name" 			column="city_name"/>
-	<result property="country_code" 	column="city_country_code"/>
+	<result property="countryCode" 	column="city_country_code"/>
 	<result property="district" 		column="city_district"/>
 	<result property="population" 		column="city_population"/>
 	
@@ -52,7 +52,6 @@
 			
 		from city c2 left outer join country c1
 			on c2.country_code = c1.code
-		 where c2.country_code = 'KOR'
 </select>
 
 <select id="selectPageWithCountry" resultMap="cityWithCountry">

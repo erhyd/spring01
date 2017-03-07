@@ -25,7 +25,7 @@ public interface CountryMapper {
 		" fetch next #{itemsPerPage} rows only	"
 		})
 	List<Country> selectPage(Pagination paging);
-	List<Country> selectPageAllWithCity(Pagination paging);
+	List<Country> selectPageWithCity(Pagination paging);
 	
 	@Select("select * from country where code=#{code}")
 	Country selectByCode(String code);

@@ -12,8 +12,6 @@ import com.example.domain.City;
 import com.example.exception.NotFoundRuntimeException;
 import com.example.util.Pagination;
 
-import javassist.NotFoundException;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CityMapperTests {
@@ -23,7 +21,7 @@ public class CityMapperTests {
 	
 	@Test
 	public void test01_selectAll(){
-		List<City> cities = mapper.selectAll("KOR");
+		List<City> cities = mapper.selectAll();
 		
 		for(City c : cities)
 			System.out.println(c);

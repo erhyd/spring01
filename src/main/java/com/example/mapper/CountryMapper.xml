@@ -21,7 +21,7 @@
 	<collection property="citys" ofType="com.example.domain.City">
 		<id 	property="id" 				column="city_id"/>
 		<result property="name" 			column="city_name"/>
-		<result property="country_code" 	column="city_country_code"/>
+		<result property="countryCode" 	column="city_country_code"/>
 		<result property="district" 		column="city_district"/>
 		<result property="population" 		column="city_population"/>
 	</collection>
@@ -58,13 +58,26 @@
 
 </select>
 
-<select id="selectPageAllWithCity">
+<resultMap type="com.example.domain.Country" id="countryWithCity2">
+	<collection property="citys" column="country_code" select="selectCitysByCode"/>
+</resultMap>
+<select id="selectCitysByCode" resultType="com.example.domain.City">
+	select *
+	from city
+	where country_code = #{country_code}
+</select>
 
+<select id="selectPageWithCity" resultMap="countryWithCity2">
+	select c.*, c.code as country_code
+	from country c
+	order by code
+	offset #{firstItem} -1 rows
+	fetch next #{itemsPerPage} rows only
 
 </select>
 
 <select id="selectByCodeWithCity" resultMap="countryWithCity">
-select	c1.code 	 		as country_code,
+select		c1.code 	 		as country_code,
 			c1.name 			as country_name,
 			c1.continent 		as country_continent,
 			c1.region 	 		as country_region,
