@@ -101,11 +101,11 @@ public class City {
 		return this;
 	}
 
-	public String getCountry_code() {
+	public String getcountryCode() {
 		return countryCode;
 	}
 
-	public void setCountry_code(String country_code) {
+	public void setcountryCode(String country_code) {
 		this.countryCode = country_code;
 	}
 

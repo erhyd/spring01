@@ -11,6 +11,9 @@ import com.example.util.Pagination;
 @Mapper
 public interface EmpMapper {
 
+	/*
+	 * select
+	 */
 	@Select("select * from emp")
 	List<Emp> selectAll();
 	List<Emp> selectAllWithDept();
@@ -25,5 +28,14 @@ public interface EmpMapper {
 			 "offset #{firstItem} -1 rows",
 			"fetch next #{itemsPerPage} rows only"})
 	List<Emp> selectPage(Pagination paging);
-	List<Emp> selectPageWithEmp();
+	List<Emp> selectPageWithDept();
+	
+	@Select("select * from emp where deptno=#{deptno}")
+	List<Emp> selectByDeptno(int deptno);
+	List<Emp> selectbyDeptnoWithDept(int deptno);
+	/*
+	 * insert
+	 */
+	
+	int insert(Emp emp);
 }

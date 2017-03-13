@@ -35,4 +35,29 @@
 			on e.deptno = d.deptno
 </select>
 
+<insert id="insert">
+	<selectKey>
+		select emp_empno_seq.nextcal from dual
+	</selectKey>
+	insert into emp
+	(
+		empno,
+		ename,
+		job,
+		mgr,
+		hiredate,
+		sal,
+		comm
+	)
+	values
+	(
+		#{empno},
+		#{ename},
+		#{job},
+		#{mgr},
+		#{hiredate},
+		#{sal},
+		#{comm}
+	)
+</insert>
 </mapper>
